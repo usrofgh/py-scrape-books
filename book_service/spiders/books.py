@@ -26,7 +26,7 @@ class BookSpiderSpider(scrapy.Spider):
     def parse_links_to_detail_page(self, response):
         detail_book_links = response.css(
             ".product_pod h3 a::attr(href)"
-            "").extract()
+        ).getall()
 
         for link in detail_book_links:
             yield scrapy.Request(
